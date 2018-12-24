@@ -1,0 +1,40 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h4 class="display-5">Minha carteira</h4>
+  <hr>
+  <div class="container">
+    <div class="row card-group">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">EMPRESA</th>
+            <th scope="col">CODIGO</th>
+            <th scope="col">SETOR</th>
+            <th scope="col">PM (IR)</th>
+            <th scope="col">PM (valor real)</th>
+            <th scope="col">QUANTIDADE</th>
+            <th scope="col">CAPITAL INVESTIDO(R$)</th>
+            <th scope="col">ÚLTIMO FECHAMENTO(R$)</th>
+            <th scope="col">CAPITAL ATUAL(R$)</th>
+            <th scope="col">VARIAÇÃO</th>
+            <th scope="col">VARIAÇÃO FINANCEIRA</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ativos">
+                <td>{{ item.empresa }}</td>
+                <td>{{ item.codigo }}</td>
+                <td>{{ item.setor }}</td>
+                <td>{{ item.precoMedioIR }}</td>
+                <td>{{ item.precoMedioReal }}</td>
+                <td>{{ item.quantidade }}</td>
+                <td>{{ item.capitalInvestido }}</td>
+                <td>{{ item.ultimoFechamento }}</td>
+                <td>{{ item.capitalAtual }}</td>
+                <td>{{ item.variacaoPercentual }}%</td>
+                <td>{{ item.variacaoFinanceira }}</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
