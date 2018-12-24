@@ -1,0 +1,85 @@
+/classes
+
+## Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.classpath
+
+## IntelliJ
+.idea/
+.idea_modules/
+/out/
+*.iml
+*.iws
+
+## Netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+## MacOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+## Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+## Windows
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+## Log file
+*.log
+/logs
+
+## BlueJ files
+*.ctxt
+
+## Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+## Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+## Tortoise GIT
+/.tgitconfig
+
+## Gradle
+/gradle
+.gradle/
+
+# Web
+src/main/angular/node_modules/
+src/main/resources/static/

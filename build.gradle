@@ -1,0 +1,49 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven { url 'https://plugins.gradle.org/m2/' }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.moowork.node'
+
+
+group = 'br.com.investimentos'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+node {
+    workDir = file("${project.projectDir}/src/main/carteira-investimentos")
+    npmWorkDir = file("${project.projectDir}/src/main/carteira-investimentos")
+    nodeModulesDir = file("${project.projectDir}/src/main/carteira-investimentos")
+}
+
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	runtimeOnly('org.postgresql:postgresql')
+	compileOnly('org.projectlombok:lombok')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+task npmBuild(type: NpmTask, dependsOn: npm_install){
+    args = ['run', 'build']
+}
+
+tasks.jar.dependsOn(npmBuild)
