@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TransacaoService {
 
-  private url = 'http://localhost:8080/investimentos/transacao';
+  private url = '/investimentos/transacao';
   transacaoAdd = new EventEmitter<Transacao>();
   transacaoUpdate = new EventEmitter<{transacao: Transacao, index: number}>();
 

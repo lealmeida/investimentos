@@ -1,6 +1,5 @@
 package br.com.investimentos.investimentos.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,12 @@ public class TransacaoService {
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 
+	@Autowired
+	private AtivoService ativoService;
+	
 	public Transacao salvarTransacao(Transacao transacao) {
+		ativoService.updateAtivo(transacao);
 		return transacaoRepository.save(transacao);
-		// TODO Auto-generated method stub
-		
 	}
 
 	public List<Transacao> getTransacoes() {
@@ -32,6 +33,7 @@ public class TransacaoService {
 	}
 
 	public void updateTransacao(Transacao transacao) {
+		ativoService.updateAtivo(transacao);
 		transacaoRepository.save(transacao);
 	}
 

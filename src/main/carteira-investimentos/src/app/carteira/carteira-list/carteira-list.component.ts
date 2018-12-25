@@ -13,7 +13,12 @@ export class CarteiraListComponent implements OnInit {
   constructor(private carteiraService: CarteiraService) { }
 
   ngOnInit() {
-    this.ativos = this.carteiraService.getCarteira();
+    this.carteiraService.getCarteira()
+      .subscribe(
+        (ativos: Ativo[]) => {
+          this.ativos = ativos;
+        }
+      );
   }
 
 }
