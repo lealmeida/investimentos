@@ -24,14 +24,14 @@
                 <td>{{ item.empresa }}</td>
                 <td>{{ item.codigo }}</td>
                 <td>{{ item.setor }}</td>
-                <td>{{ item.precoMedioIR }}</td>
-                <td>{{ item.precoMedioReal }}</td>
+                <td>{{ item.precoMedioIR  | number }}</td>
+                <td>{{ item.precoMedioReal  | number }}</td>
                 <td>{{ item.quantidade }}</td>
-                <td>{{ item.capitalInvestido }}</td>
-                <td>{{ item.ultimoFechamento }}</td>
-                <td>{{ item.capitalAtual }}</td>
-                <td>{{ item.variacaoPercentual }}%</td>
-                <td>{{ item.variacaoFinanceira }}</td>
+                <td>R$ {{ item.capitalInvestido  | number }}</td>
+                <td>R$ {{ item.ultimoFechamento  | number }}</td>
+                <td>R$ {{ item.quantidade * item.ultimoFechamento  | number}}</td>
+                <td>{{ (((item.quantidade * item.ultimoFechamento) - item.capitalInvestido) / (item.quantidade * item.ultimoFechamento ) * 100) | number }} %</td>
+                <td>R$ {{ (item.quantidade * item.ultimoFechamento) - item.capitalInvestido  | number}}</td>
               </tr>
         </tbody>
       </table>

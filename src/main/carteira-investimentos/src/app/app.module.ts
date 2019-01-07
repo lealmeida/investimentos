@@ -17,6 +17,9 @@ import { CompraVendaItemComponent } from './compra-venda/compra-venda-item/compr
 import { CompraVendaEditComponent } from './compra-venda/compra-venda-edit/compra-venda-edit.component';
 import { TransacaoService } from './service/transacao.service';
 import { DatePipe } from '@angular/common';
+import { ProventoComponent } from './provento/provento.component';
+import { ProventoListComponent } from './provento/provento-list/provento-list.component';
+import { ProventoEditComponent } from './provento/provento-edit/provento-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { DatePipe } from '@angular/common';
     CompraVendaComponent,
     CompraVendaListComponent,
     CompraVendaItemComponent,
-    CompraVendaEditComponent
+    CompraVendaEditComponent,
+    ProventoComponent,
+    ProventoListComponent,
+    ProventoEditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,7 @@ import { DatePipe } from '@angular/common';
     NgbModule,
     HttpClientModule
   ],
-  entryComponents: [ CompraVendaEditComponent ],
+  entryComponents: [ CompraVendaEditComponent, ProventoEditComponent ],
   providers: [TransacaoService, DatePipe],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.investimentos.investimentos.exception.InvestimentosException;
 import br.com.investimentos.investimentos.model.Transacao;
 import br.com.investimentos.investimentos.repository.TransacaoRepository;
 
@@ -17,24 +18,22 @@ public class TransacaoService {
 	@Autowired
 	private AtivoService ativoService;
 	
-	public Transacao salvarTransacao(Transacao transacao) {
-		ativoService.updateAtivo(transacao);
+	public Transacao salvarTransacao(Transacao transacao) throws InvestimentosException {
+		if (transacao.getTipo().equalsIgnoreCase("compra")) {
+			ativoService.compraAtivo(transacao);
+		} else {
+			ativoService.vendaAtivo(transacao);
+		}
 		return transacaoRepository.save(transacao);
 	}
 
 	public List<Transacao> getTransacoes() {
-		// TODO Auto-generated method stub
 		List<Transacao> transacoes = transacaoRepository.findAll();
 		return transacoes;
 	}
 
 	public void deleteTransacao(long id) {
 		transacaoRepository.deleteById(id);
-	}
-
-	public void updateTransacao(Transacao transacao) {
-		ativoService.updateAtivo(transacao);
-		transacaoRepository.save(transacao);
 	}
 
 }
