@@ -7,7 +7,8 @@ import { Provento } from '../model/provento';
 })
 export class ProventoService {
 
-  private url = 'http://localhost:8080/investimentos/proventos';
+  // private url = 'http://localhost:8080/investimentos/proventos';
+  private url = '/investimentos/proventos';
   proventoAdd = new EventEmitter<Provento>();
 
   constructor(private http: HttpClient) { }

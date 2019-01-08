@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CarteiraService {
 
-  // private url = '/investimentos/ativo';
-  private url = 'http://localhost:8080/investimentos/ativo';
+  private url = '/investimentos/ativo';
+  // private url = 'http://localhost:8080/investimentos/ativo';
 
   constructor(private http: HttpClient) { }
 
